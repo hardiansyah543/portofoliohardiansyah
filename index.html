@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardiansyah — Laravel Developer</title>
+<meta name="description" content="Portofolio pribadi Hardiansyah, Laravel Developer & Full Stack Enthusiast. Membangun aplikasi web modern, cepat, aman, dan responsif.">
+<meta name="keywords" content="Hardiansyah, Laravel Developer, Full Stack, Portfolio, Web Developer">
+<meta name="author" content="Hardiansyah">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hardiansyah — Laravel Developer">
+<meta property="og:description" content="Portofolio pribadi Hardiansyah, Laravel Developer & Full Stack Enthusiast.">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2318F2A3%22>H</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================== -->
+<!-- LOADING SCREEN -->
+<!-- ============================== -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-content">
+    <div class="loading-logo">
+      <svg viewBox="0 0 120 120" class="logo-svg">
+        <circle class="logo-ring" cx="60" cy="60" r="50" />
+        <text x="60" y="72" class="logo-letter" text-anchor="middle">H</text>
+      </svg>
+    </div>
+    <div class="loading-bar-track">
+      <div class="loading-bar-fill" id="loadingBarFill"></div>
+    </div>
+    <div class="loading-percent" id="loadingPercent">0%</div>
+    <div class="loading-tag">Menyiapkan pengalaman premium…</div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!-- CUSTOM CURSOR -->
+<!-- ============================== -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============================== -->
+<!-- AMBIENT BACKGROUND -->
+<!-- ============================== -->
+<canvas id="particleCanvas" class="particle-canvas"></canvas>
+<div class="aurora-bg" aria-hidden="true">
+  <span class="aurora aurora-1"></span>
+  <span class="aurora aurora-2"></span>
+  <span class="aurora aurora-3"></span>
+</div>
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ============================== -->
+<!-- SCROLL PROGRESS -->
+<!-- ============================== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============================== -->
+<!-- NAVBAR -->
+<!-- ============================== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>Hardiansyah<span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-section="home">Home</a>
+      <a href="#about" class="nav-link" data-section="about">Tentang</a>
+      <a href="#skills" class="nav-link" data-section="skills">Skill</a>
+      <a href="#projects" class="nav-link" data-section="projects">Project</a>
+      <a href="#timeline" class="nav-link" data-section="timeline">Timeline</a>
+      <a href="#certificates" class="nav-link" data-section="certificates">Sertifikat</a>
+      <a href="#contact" class="nav-link" data-section="contact">Kontak</a>
+    </nav>
+
+    <a href="#contact" class="btn btn-nav magnetic">Hubungi Saya</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#about" class="mobile-link">Tentang</a>
+  <a href="#skills" class="mobile-link">Skill</a>
+  <a href="#projects" class="mobile-link">Project</a>
+  <a href="#timeline" class="mobile-link">Timeline</a>
+  <a href="#certificates" class="mobile-link">Sertifikat</a>
+  <a href="#contact" class="mobile-link">Kontak</a>
+</div>
+
+<main>
+
+<!-- ============================== -->
+<!-- HERO SECTION -->
+<!-- ============================== -->
+<section class="hero" id="home">
+  <div class="hero-container">
+
+    <div class="hero-text reveal-up">
+      <div class="hero-eyebrow">
+        <span class="pulse-dot"></span> Tersedia untuk kerja sama
+      </div>
+      <h1 class="hero-title">
+        Halo, saya <span class="text-gradient">Hardiansyah</span>
+      </h1>
+      <div class="hero-role">
+        <span id="typedText"></span><span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-desc">
+        Mahasiswa Sistem Informasi yang membangun aplikasi web modern,
+        cepat, aman, dan enak dipakai — satu baris kode Laravel dalam satu waktu.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnetic">
+          <span>Lihat Project</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="assets/CV-Hardiansyah.pdf" download class="btn btn-outline magnetic">
+          <span>Download CV</span>
+          <i class="fa-solid fa-download"></i>
+        </a>
+        <a href="#contact" class="btn btn-ghost magnetic">
+          <span>Hubungi Saya</span>
+        </a>
+      </div>
+
+      <div class="hero-socials">
+        <a href="https://github.com/" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:hardiansyah@email.com" class="social-icon magnetic" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal-up delay-2">
+      <div class="photo-orbit">
+        <span class="orbit-ring ring-1"></span>
+        <span class="orbit-ring ring-2"></span>
+        <span class="floating-badge badge-1"><i class="fa-brands fa-laravel"></i></span>
+        <span class="floating-badge badge-2"><i class="fa-solid fa-database"></i></span>
+        <span class="floating-badge badge-3"><i class="fa-brands fa-php"></i></span>
+        <span class="floating-badge badge-4"><i class="fa-brands fa-js"></i></span>
+        <div class="photo-glow"></div>
+        <div class="photo-frame">
+          <!-- PLACEHOLDER: Ganti src dengan foto profil Anda di assets/images/profile.jpg -->
+          <img src="assets/images/profile.jpg" alt="Foto profil Hardiansyah" class="profile-photo" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-indicator magnetic" aria-label="Scroll ke bawah">
+    <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+    <span class="scroll-label">Scroll</span>
+  </a>
+</section>
+
+<!-- ============================== -->
+<!-- ABOUT SECTION -->
+<!-- ============================== -->
+<section class="about" id="about">
+  <div class="section-container">
+    <div class="section-head reveal-up">
+      <span class="section-eyebrow">01 — Perkenalan</span>
+      <h2 class="section-title">Tentang Saya</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo reveal-left">
+        <div class="about-photo-frame">
+          <img src="assets/images/profile.jpg" alt="Hardiansyah sedang bekerja" class="about-img" />
+          <div class="about-photo-glow"></div>
+        </div>
+        <div class="about-exp-card">
+          <span class="exp-number" data-count="2">0</span>
+          <span class="exp-plus">+</span>
+          <span class="exp-label">Tahun Belajar<br>Web Development</span>
+        </div>
+      </div>
+
+      <div class="about-content reveal-right">
+        <p class="about-lead">
+          Saya <strong>Hardiansyah</strong>, mahasiswa Sistem Informasi sekaligus
+          <strong class="text-gradient">Laravel Developer</strong> yang senang mengubah ide
+          menjadi aplikasi web yang nyata.
+        </p>
+        <p class="about-text">
+          Fokus saya ada pada pengembangan backend, struktur database yang rapi, dan antarmuka
+          modern yang tetap terasa cepat digunakan. Saya percaya aplikasi yang baik bukan cuma
+          berfungsi, tapi juga aman, terstruktur, dan nyaman dipakai penggunanya.
+        </p>
+        <p class="about-text">
+          Di luar Laravel, saya suka mengulik database, mencoba UI/UX baru, dan terus belajar
+          teknologi terkini — dari REST API sampai eksperimen kecil dengan Python dan computer vision.
+        </p>
+
+        <div class="about-info-grid">
+          <div class="info-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <span class="info-label">Pendidikan</span>
+              <span class="info-value">Sistem Informasi</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-briefcase"></i>
+            <div>
+              <span class="info-label">Fokus</span>
+              <span class="info-value">Laravel Developer</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <span class="info-label">Lokasi</span>
+              <span class="info-value">Indonesia</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <span class="info-label">Status</span>
+              <span class="info-value">Terbuka untuk kerja sama</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary magnetic">
+          <span>Mari Berdiskusi</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- SKILLS SECTION -->
+<!-- ============================== -->
+<section class="skills" id="skills">
+  <div class="section-container">
+    <div class="section-head reveal-up">
+      <span class="section-eyebrow">02 — Kemampuan</span>
+      <h2 class="section-title">Skill &amp; Teknologi</h2>
+      <p class="section-sub">Tools dan bahasa yang saya gunakan untuk membangun aplikasi web dari ujung ke ujung.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal-up" data-level="90">
+        <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+        <h3>HTML</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">90%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="85">
+        <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
+        <h3>CSS</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">85%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="80">
+        <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+        <h3>JavaScript</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">80%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="85">
+        <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
+        <h3>PHP</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">85%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="92">
+        <div class="skill-icon"><i class="fa-brands fa-laravel"></i></div>
+        <h3>Laravel 12</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">92%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="83">
+        <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+        <h3>MySQL</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">83%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="75">
+        <div class="skill-icon"><i class="fa-solid fa-fire"></i></div>
+        <h3>Firebase</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">75%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="88">
+        <div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div>
+        <h3>Git</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">88%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="88">
+        <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
+        <h3>GitHub</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">88%</span>
+      </div>
+      <div class="skill-card reveal-up" data-level="80">
+        <div class="skill-icon"><i class="fa-solid fa-plug"></i></div>
+        <h3>REST API</h3>
+        <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        <span class="skill-percent">80%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- PROJECTS SECTION -->
+<!-- ============================== -->
+<section class="projects" id="projects">
+  <div class="section-container">
+    <div class="section-head reveal-up">
+      <span class="section-eyebrow">03 — Karya</span>
+      <h2 class="section-title">Project Terbaru</h2>
+      <p class="section-sub">Beberapa aplikasi web yang sudah saya bangun, dari sistem pembayaran hingga eksperimen computer vision.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <article class="project-card reveal-up">
+        <div class="project-image">
+          <!-- PLACEHOLDER: Ganti dengan screenshot project di assets/images/project-1.jpg -->
+          <div class="project-placeholder-img" style="--pc1:#18F2A3;--pc2:#050505;">
+            <i class="fa-solid fa-image"></i>
+            <img src="assets/images/almannanpay.jpg" alt="Screenshot project AL-MANNAN PAY" class="project-screenshot" />
+          </div>
+          <div class="project-overlay">
+            <a href="#" class="project-btn magnetic" aria-label="Lihat Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="#" class="project-btn magnetic" aria-label="Lihat GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Laravel 12</span>
+          <h3 class="project-title">AL-MANNAN PAY</h3>
+          <p class="project-desc">Manajemen keuangan santri lengkap dengan dashboard admin, dashboard santri, QR Code, dan laporan otomatis.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span>
+            <span class="tag">Dashboard Admin</span>
+            <span class="tag">QR Code</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-image">
+          <div class="project-placeholder-img" style="--pc1:#1EE8A8;--pc2:#0F0F0F;">
+            <i class="fa-solid fa-image"></i>
+            <img src="assets/images/santripay.jpg" alt="Screenshot project SantriPay" class="project-screenshot" />
+          </div>
+          <div class="project-overlay">
+            <a href="#" class="project-btn magnetic"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="#" class="project-btn magnetic"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Laravel · MySQL</span>
+          <h3 class="project-title">SantriPay</h3>
+          <p class="project-desc">Sistem pembayaran pondok pesantren berbasis Laravel dan MySQL untuk mempermudah transaksi santri.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-image">
+          <div class="project-placeholder-img" style="--pc1:#39FFB6;--pc2:#121212;">
+            <i class="fa-solid fa-image"></i>
+            <img src="assets/images/warung.jpg" alt="Screenshot project Warung Nusantara" class="project-screenshot" />
+          </div>
+          <div class="project-overlay">
+            <a href="#" class="project-btn magnetic"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="#" class="project-btn magnetic"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Firebase</span>
+          <h3 class="project-title">Warung Nusantara</h3>
+          <p class="project-desc">Aplikasi pemesanan restoran dengan data realtime menggunakan Firebase Realtime Database.</p>
+          <div class="project-tags">
+            <span class="tag">Firebase</span>
+            <span class="tag">Realtime DB</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-image">
+          <div class="project-placeholder-img" style="--pc1:#00FFC8;--pc2:#050505;">
+            <i class="fa-solid fa-image"></i>
+            <img src="assets/images/perpus.jpg" alt="Screenshot project Sistem Perpustakaan" class="project-screenshot" />
+          </div>
+          <div class="project-overlay">
+            <a href="#" class="project-btn magnetic"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="#" class="project-btn magnetic"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Laravel</span>
+          <h3 class="project-title">Sistem Perpustakaan</h3>
+          <p class="project-desc">Sistem manajemen perpustakaan dengan CRUD lengkap dan autentikasi pengguna berbasis Laravel.</p>
+          <div class="project-tags">
+            <span class="tag">CRUD</span>
+            <span class="tag">Authentication</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-image">
+          <div class="project-placeholder-img" style="--pc1:#18F2A3;--pc2:#0F0F0F;">
+            <i class="fa-solid fa-image"></i>
+            <img src="assets/images/comers.jpg" alt="Screenshot project Sistem E-Commerce" class="project-screenshot" />
+          </div>
+          <div class="project-overlay">
+            <a href="#" class="project-btn magnetic"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="#" class="project-btn magnetic"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Laravel</span>
+          <h3 class="project-title">Sistem E-Commerce</h3>
+          <p class="project-desc">Platform jual beli dengan katalog produk, keranjang belanja, dan checkout langsung via WhatsApp.</p>
+          <div class="project-tags">
+            <span class="tag">Produk</span>
+            <span class="tag">Checkout WA</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-image">
+          <div class="project-placeholder-img" style="--pc1:#1EE8A8;--pc2:#050505;">
+            <i class="fa-solid fa-image"></i>
+            <img src="assets/images/jari.jpg" alt="Screenshot project Sistem Deteksi Jari" class="project-screenshot" />
+          </div>
+          <div class="project-overlay">
+            <a href="#" class="project-btn magnetic"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+            <a href="#" class="project-btn magnetic"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <span class="project-category">Python · OpenCV</span>
+          <h3 class="project-title">Sistem Deteksi Jari</h3>
+          <p class="project-desc">Eksperimen computer vision menggunakan OpenCV dan MediaPipe untuk voice assistant berbasis gestur jari.</p>
+          <div class="project-tags">
+            <span class="tag">OpenCV</span>
+            <span class="tag">MediaPipe</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- TIMELINE SECTION -->
+<!-- ============================== -->
+<section class="timeline" id="timeline">
+  <div class="section-container">
+    <div class="section-head reveal-up">
+      <span class="section-eyebrow">04 — Perjalanan</span>
+      <h2 class="section-title">Timeline Belajar</h2>
+      <p class="section-sub">Jejak langkah dari mengenal HTML pertama kali hingga membangun aplikasi Laravel skala penuh.</p>
+    </div>
+
+    <div class="timeline-track">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-tag">Awal</span>
+          <h3>Mahasiswa Sistem Informasi</h3>
+          <p>Memulai perjalanan formal di dunia teknologi informasi sekaligus mengenal dasar-dasar pemrograman.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-tag">Fondasi</span>
+          <h3>Belajar HTML &amp; CSS</h3>
+          <p>Mulai membangun struktur halaman web dan mempelajari tata letak serta styling modern.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-tag">Interaktivitas</span>
+          <h3>Belajar JavaScript</h3>
+          <p>Menambahkan interaktivitas pada web, memahami DOM, event, dan logika pemrograman.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-tag">Backend</span>
+          <h3>Belajar PHP</h3>
+          <p>Masuk ke dunia backend, memahami server-side scripting dan pengolahan data dinamis.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-tag">Framework</span>
+          <h3>Belajar Laravel</h3>
+          <p>Mendalami framework Laravel — routing, Eloquent ORM, migration, hingga arsitektur MVC.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-tag">Sekarang</span>
+          <h3>Membangun Berbagai Project</h3>
+          <p>Menerapkan seluruh ilmu ke dalam project nyata, dari sistem pembayaran hingga e-commerce.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- STATISTICS SECTION -->
+<!-- ============================== -->
+<section class="stats" id="stats">
+  <div class="section-container">
+    <div class="stats-grid">
+      <div class="stat-card reveal-up">
+        <i class="fa-solid fa-diagram-project stat-icon"></i>
+        <div class="stat-number" data-target="6"><span class="counter">0</span>+</div>
+        <div class="stat-label">Project Selesai</div>
+      </div>
+      <div class="stat-card reveal-up">
+        <i class="fa-solid fa-layer-group stat-icon"></i>
+        <div class="stat-number" data-target="10"><span class="counter">0</span>+</div>
+        <div class="stat-label">Teknologi Dikuasai</div>
+      </div>
+      <div class="stat-card reveal-up">
+        <i class="fa-brands fa-github stat-icon"></i>
+        <div class="stat-number" data-target="15"><span class="counter">0</span>+</div>
+        <div class="stat-label">Repository GitHub</div>
+      </div>
+      <div class="stat-card reveal-up">
+        <i class="fa-solid fa-clock stat-icon"></i>
+        <div class="stat-number" data-target="500"><span class="counter">0</span>+</div>
+        <div class="stat-label">Jam Belajar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CERTIFICATES SECTION -->
+<!-- ============================== -->
+<section class="certificates" id="certificates">
+  <div class="section-container">
+    <div class="section-head reveal-up">
+      <span class="section-eyebrow">05 — Pencapaian</span>
+      <h2 class="section-title">Sertifikat</h2>
+      <p class="section-sub">Bukti pembelajaran dan pencapaian dalam perjalanan pengembangan web.</p>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card reveal-up">
+        <div class="cert-image">
+          <!-- PLACEHOLDER: Ganti dengan gambar sertifikat di assets/images/certificate-1.jpg -->
+          <div class="cert-placeholder-img"><i class="fa-solid fa-award"></i></div>
+        </div>
+        <div class="cert-body">
+          <h3>Belajar Dasar Pemrograman Web</h3>
+          <span class="cert-issuer">Di Belajar coding full stack</span>
+        </div>
+      </div>
+      <div class="cert-card reveal-up">
+        <div class="cert-image">
+          <div class="cert-placeholder-img"><i class="fa-solid fa-award"></i></div>
+        </div>
+        <div class="cert-body">
+          <h3>Fundamental Laravel Framework</h3>
+          <span class="cert-issuer">Kominfo Digital Talent</span>
+        </div>
+      </div>
+      <div class="cert-card reveal-up">
+        <div class="cert-image">
+          <div class="cert-placeholder-img"><i class="fa-solid fa-award"></i></div>
+        </div>
+        <div class="cert-body">
+          <h3>Database Design &amp; MySQL</h3>
+          <span class="cert-issuer">Di Belajar coding full stack</span>
+        </div>
+      </div>
+      <div class="cert-card reveal-up">
+        <div class="cert-image">
+          <div class="cert-placeholder-img"><i class="fa-solid fa-award"></i></div>
+        </div>
+        <div class="cert-body">
+          <h3>Staf Departemen Komunikasi &amp; Informasi</h3>
+          <span class="cert-issuer">BADAN EKSEKUTIF MAHASISWA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== -->
+<!-- CONTACT SECTION -->
+<!-- ============================== -->
+<section class="contact" id="contact">
+  <div class="section-container">
+    <div class="section-head reveal-up">
+      <span class="section-eyebrow">06 — Kontak</span>
+      <h2 class="section-title">Mari Berkolaborasi</h2>
+      <p class="section-sub">Punya project atau ide? Jangan ragu untuk menghubungi saya kapan saja.</p>
+    </div>
+
+    < class="contact-grid">
+      <div class="contact-info reveal-left">
+        <a href="https://wa.me/6281779808202" target="_blank" rel="noopener" class="contact-item magnetic">
+          <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <span class="contact-item-label">WhatsApp</span>
+            <span class="contact-item-value">+62 817-7980-8202</span>
+          </div>
+        </a>
+        <a href="mailto:hardianhardian543@gmail.com" class="contact-item magnetic">
+          <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <span class="contact-item-label">Email</span>
+            <span class="contact-item-value">hardianhardian543@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener" class="contact-item magnetic">
+          <div class="contact-item-icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <span class="contact-item-label">GitHub</span>
+            <span class="contact-item-value">github.com/hardiansyah</span>
+          </div>
+        </a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="contact-item magnetic">
+          <div class="contact-item-icon"><i class="fa-brands fa-instagram"></i></div>
+          <div>
+            <span class="contact-item-label">Instagram</span>
+            <span class="contact-item-value">@hard.iansyah493</span>
+          </div>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-item magnetic">
+          <div class="contact-item-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div>
+            <span class="contact-item-label">LinkedIn</span>
+            <span class="contact-item-value">linkedin.com/in/hardiansyah</span>
+          </div>
+        </a>
+      </div>
+
+      <form class="contact-form reveal-right" id="contactForm" novalidate>
+        <div class="form-group">
+          <input type="text" id="formName" name="name" required placeholder=" ">
+          <label for="formName">Nama</label>
+          <span class="form-error" id="errorName">Nama wajib diisi</span>
+        </div>
+        <div class="form-group">
+          <input type="email" id="formEmail" name="email" required placeholder=" ">
+          <label for="formEmail">Email</label>
+          <span class="form-error" id="errorEmail">Masukkan email yang valid</span>
+        </div>
+        <div class="form-group">
+          <textarea id="formMessage" name="message" rows="5" required placeholder=" "></textarea>
+          <label for="formMessage">Pesan</label>
+          <span class="form-error" id="errorMessage">Pesan wajib diisi</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit magnetic">
+          <span class="btn-submit-text">Kirim Pesan</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <div class="eorm-success" id="formSuccess">
+          <i class="fa-solid fa-circle-check"></i> Pesan berhasil dikirim! Terima kasih sudah menghubungi saya.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== -->
+<!-- FOOTER -->
+<!-- ============================== -->
+<footer class="footer">
+  <div class="section-container footer-container">
+    <a href="#home" class="footer-logo">
+      <span class="logo-bracket">&lt;</span>Hardiansyah<span class="logo-bracket">/&gt;</span>
+    </a>
+    <p class="footer-quote">"Terima kasih telah mengunjungi portofolio saya."</p>
+    <div class="footer-socials">
+      <a href="https://github.com/" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/6281779808202" target="_blank" rel="noopener" class="social-icon magnetic" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="mailto:hardianhardian543@gmail.com" class="social-icon magnetic" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> Hardiansyah. Semua hak dilindungi.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top magnetic" id="backToTop" aria-label="Kembali ke atas">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
